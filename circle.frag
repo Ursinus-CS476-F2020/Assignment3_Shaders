@@ -11,6 +11,14 @@ varying vec2 v_position;
 
 void main() {
     //TODO: Fill this in
-
-    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    vec2 diff = v_position - uCenter;
+    if (dot(diff, diff) <= uRadius*uRadius) {
+        // Red on inside
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+    else {
+        // Black on the outside
+        gl_FragColor = vec4(0, 0, 0, 1);
+    }
+    
 }
